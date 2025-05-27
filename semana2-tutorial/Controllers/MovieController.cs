@@ -3,9 +3,9 @@ using MvcMovie.Models;
 
 namespace semana2_tutorial.Controllers
 {
-    public class MoviesController : Controller
+    public class MovieController : Controller
     {
-        // GET: Movies
+        // GET: Movie
         public async Task<IActionResult> Index()
         {
             var listMovies = new List<Movie>();
@@ -35,7 +35,7 @@ namespace semana2_tutorial.Controllers
         }
 
 
-        // GET: Movies/Details/5
+        // GET: Movie/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -56,6 +56,12 @@ namespace semana2_tutorial.Controllers
 
 
             return View(movie);
+        }
+
+        // GET: Movie/Nueva
+        public async Task<IActionResult> Nueva()
+        {
+            return View();
         }
     }
 }
