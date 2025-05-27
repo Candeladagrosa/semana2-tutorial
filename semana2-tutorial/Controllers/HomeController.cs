@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using semana2_tutorial.Models;
+using Microsoft.AspNetCore.Http; // Para acceder a Session
 
 namespace semana2_tutorial.Controllers
 {
@@ -15,11 +16,18 @@ namespace semana2_tutorial.Controllers
 
         public IActionResult Index()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
+                return RedirectToAction("Login", "Account");
+
+            ViewBag.Mensaje = TempData["Mensaje"];
             return View();
         }
 
         public IActionResult Privacy()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
+                return RedirectToAction("Login", "Account");
+
             return View();
         }
 
