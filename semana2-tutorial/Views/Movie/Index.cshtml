@@ -1,7 +1,21 @@
-﻿@model IEnumerable<MvcMovie.Models.Movie>
+﻿@model IEnumerable<semana2_tutorial.Models.Movie>
 
 @{
     ViewData["Title"] = "Index";
+}
+
+@if (ViewBag.MensajeError != null)
+{
+	<div class="alert alert-danger">
+		@ViewBag.MensajeError
+	</div>
+}
+
+@if (ViewBag.MensajeExito != null)
+{
+	<div class="alert alert-success">
+		@ViewBag.MensajeExito
+	</div>
 }
 
 <h1>Index</h1>
